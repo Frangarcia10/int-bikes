@@ -41,4 +41,20 @@ describe("RentalList", () => {
     list.add(rental);
     expect(list.totalIncome()).toBe(300);
   });
+
+  test("total late fees", () => {
+    rental.lateHours = 2;
+    list.add(rental);
+    expect(list.totalLateFees()).toBe(400);
+  });
+
+  test("remove a rental", () => {
+    list.add(rental);
+    list.remove(rental.bikeCode);
+    expect(list.getItems()).toEqual([]);
+  });
+
+  test("remove a non-existing rental", () => {
+    expect(() => list.remove("B-999")).toThrow();
+  });
 });
