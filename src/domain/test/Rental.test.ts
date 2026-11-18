@@ -93,5 +93,5 @@ describe("Rental", () => {
     expect(() => (rental.lateHours = 2)).not.toThrow();
   });
   
-  test
+  
 });
